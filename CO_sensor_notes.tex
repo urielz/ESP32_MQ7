@@ -1,0 +1,34 @@
+\documentclass{article}
+
+    % General document formatting
+    \usepackage[margin=0.7in]{geometry}
+    \usepackage[parfill]{parskip}
+    \usepackage[utf8]{inputenc}
+    \usepackage[dvipsnames]{xcolor}
+    
+    % Related to math
+    \usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\begin{document}
+
+\section*{MQ-7 sensor:}
+.
+
+\section*{ESPHome configuration:} 
+Use the ESPHome adc sensor to interface with the built-in ADC of the devboard.
+For the ESP32 the pin range is: GPIO32 to GPIO39.\\\\
+
+Example YAML:\\
+{\color{Gray} \rule{\linewidth}{0.6mm} }
+
+\begin{verbatim}
+sensor:
+  - platform: adc
+    pin: A0
+    name: "sensor name"
+    update_interval: 60s
+\end{verbatim}
+{\color{Gray} \rule{\linewidth}{0.6mm} }\\\\
+more info: https://esphome.io/components/sensor/adc.html
+
+\end{document}
