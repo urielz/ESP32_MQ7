@@ -5,6 +5,7 @@
     \usepackage[parfill]{parskip}
     \usepackage[utf8]{inputenc}
     \usepackage[dvipsnames]{xcolor}
+    \usepackage[hidelinks]{hyperref}
     
     % Related to math
     \usepackage{amsmath,amssymb,amsfonts,amsthm}
@@ -26,9 +27,23 @@ sensor:
   - platform: adc
     pin: A0
     name: "sensor name"
-    update_interval: 60s
+    update_interval: never
 \end{verbatim}
 {\color{Gray} \rule{\linewidth}{0.6mm} }\\\\
-more info: https://esphome.io/components/sensor/adc.html
+
+
+The never update interval on the ADC sensor example is needed due to the measurement cycle of the MQ-7 sensor. 
+Therefore the updates need to be trigger manually.
+One way to do it would be to create an interval component that:\\\\
+(a) Enables power via a switch\\
+(b) Wait a bit (add delay)\\
+(c) Triggers ADC update (component.update)\\
+(d) Wait again\\
+(e) Disable PSU\\\\
+
+more info:\\
+\begin{itemize}
+    \item\url{https://esphome.io/components/sensor/adc.html} 
+\end{itemize}
 
 \end{document}
