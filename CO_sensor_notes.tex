@@ -12,8 +12,17 @@
 
 \begin{document}
 
+\title{Carbon Monoxide sensor (MQ7 \& BME280 on an ESP32) controlled via ESPHome on Home Assistant}
+\maketitle
+
+
 \section*{MQ-7 sensor:}
-.
+According to the MQ-7 data sheet (\url{https://github.com/urielz/ESP32_MQ7/blob/master/MQ-7.pdf}
+), the MQ-7 runs in cycles. The cycle consist of a measuring period of 90s at
+1.4V follow by a heating period of 60s at 5.0v. During the low voltage (low
+temperature) phase, CO is absorbed on the plate, producing meaningful data. 
+During the heating phase (5V), absorbed CO and other compounds evaporate from
+the sensor plate, essentially cleaning it for the next measurement period.
 
 \section*{ESPHome configuration:} 
 Use the ESPHome adc sensor to interface with the built-in ADC of the devboard.
@@ -41,7 +50,11 @@ One way to do it would be to create an interval component that:\\\\
 (d) Wait again\\
 (e) Disable PSU\\\\
 
-more info:\\
+\section*{Calibration:}
+.
+\section*{Temperature and Relative Humidity dependance:}
+.
+\section*{Resources:}
 \begin{itemize}
     \item\url{https://esphome.io/components/sensor/adc.html} 
 \end{itemize}
